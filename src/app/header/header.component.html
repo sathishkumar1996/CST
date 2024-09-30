@@ -1,0 +1,39 @@
+<section>
+  <div class="group">
+    <div class="left">
+      <img class="abbvie-header" [routerLink]="['']" src="../../assets/Images/AbbVieLogo_AbbVieWhite.svg" alt="">
+      <p class="division">
+      </p>
+      <p class="candidate-rewards" [routerLink]="['']">Candidate Rewards</p>
+    </div>
+    <!-- <img class="cr" src="../../assets/Images/Candidate Rewards.png" alt=""> -->
+
+    @if (name) {
+    <div class="afterLogin text-end" id="info" (click)="logOut()">
+      <div class="logout-b">
+        <div>{{name}}</div>
+        <img src="../../assets/Images/Logout-icon.svg" alt="">
+      </div>
+    </div>
+
+    <div ngbDropdown class="d-inline-block" id="ham-info">
+      <button type="button" class="btn custom-button-padding border-0" id="dropdownBasic1" ngbDropdownToggle>
+        <img src="../../assets/Images/hamburger-white-icon.svg" alt="">
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="menu">
+        <button ngbDropdownItem>
+          <div class="afterLogin text-end d-flex">
+            <div>
+              <div>{{name}}</div>
+            </div>
+            <div class="flex-1">
+              <img src="../../assets/Images/Logout-black-icon.svg" alt="" (click)="logOut()">
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    }
+
+  </div>
+</section>

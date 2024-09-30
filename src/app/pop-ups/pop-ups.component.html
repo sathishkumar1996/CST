@@ -1,0 +1,41 @@
+<!-- <section class="section">
+    <div class="d-flex w-100 heading">
+        <div class="w-90 text-start">
+            <p class="title">{{Heading}}</p>
+        </div>
+        <div class="w-10 text-end">
+            <button type="button" class="btn-close close-button" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+        </div>
+    </div>
+    <div>
+        <p class="text-center pb-3">{{Content}}</p>
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn custom-button btn-secondary" (click)="Confirm()">Ok</button>
+    </div>
+</section> -->
+
+<div #modal class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content section">
+      <div class=" d-flex w-100 heading">
+        <div class="modal-title w-90 text-start fs-5" id="exampleModalLabel">
+          <p class="title">
+            {{Heading}}
+          </p>
+        </div>
+        <div class="w-10 text-end">
+          <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="content-spacing">
+        <p class="text-center pb-3">{{Content}}</p>
+      </div>
+      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button> -->
+      <div class="text-center button-spacing">
+        <button type="button" class="btn custom-button btn-secondary" (click)="confirm()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,989 @@
+<section class="section" *ngIf='!print'>
+  <div class="w-100">
+    <section>
+      <div class="extras row m-0">
+        <div class="col-3 col-xxl-4 col-xl-3 col-lg-3 col-md-3 col-sm-3 back-button" (click)="GoBack()">
+          <img src="../../../assets/Images/Back-icon.svg" alt="">
+          <img src="../../../assets/Images/Back.svg" alt="">
+        </div>
+        <div class="col-1 col-xxl-5 col-xl-4 col-lg-4 col-md-1 col-sm-1"></div>
+        <div class="col-8 col-xxl-3 col-xl-5 col-lg-5 col-md-8 col-sm-8 row m-0 p-1">
+          <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 m-auto">
+            <select class="form-select">
+              <option selected value="English">English</option>
+              <option value="Language 2">Language 2</option>
+              <option value="Language 3">Language 3</option>
+            </select>
+          </div>
+          <div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 m-auto text-end text-xxl-start text-xl-start text-lg-start  text-md-start text-sm-start">
+            <span class="date">Access expires on </span><span class="boldDate">Sep 15, 2024{{this.date | date}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="blue-box">
+        <div class="fs-14">
+          This statement is available to view until 11:59PM CT {{bannerDate}}
+        </div>
+      </div>
+      <div class="header">
+        <div class="Abbvie-logo-div">
+          <img class="img-w-abbvie-logo" src="../../../assets/Images/AbbVieLogo_AbbVie dark blue 1.png" alt="">
+        </div>
+        <div class="Abbvie-brand-div text-end">
+          <img class="img-w-abbvie-brand-line" src="../../../assets/Images/AbbVie Brand Line.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="gaps">
+
+      <div class="Desc">
+        <div class="ytrp">
+          <div class="ytrp-header">Your Total Rewards Package</div>
+          <div class="ytrp-s2">{{Name}}, there are many ways to be a difference maker. We invite you to
+            find your way at Abbvie. To be your best at home and at work, we offer a competitive
+            Total Rewards Package. It's illustrated value is shown below, with program details in
+            the <u>{{Attachments}}</u>.
+          </div>
+          <div class="ytrp-s3">This summary document is meant to provide general information only
+            and to
+            precede the
+            written
+            offer letter, which will supersede this document. Actual awards and amounts may vary. This
+            document is subject to the terms of the applicable Abbvie plan/program/policy documents and In
+            the
+            event of a conflict, the Abbvie plan/program/policy ducument will govern.
+          </div>
+          <button class="btn btn-blue custom-button" (click)="printSummary()"><b>PRINT SUMMARY</b> <span
+              class="print-icon"> <img src="../../../assets/Images/print_icon.png" alt=""></span></button>
+        </div>
+
+        <div class="ytrp-table">
+
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Name</div>
+            <div class="ytrp-table-content-right">{{fullname}}</div>
+          </section>
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Role</div>
+            <div class="ytrp-table-content-right">{{Role}}</div>
+          </section>
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Location</div>
+            <div class="ytrp-table-content-right">{{Location}}</div>
+          </section>
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Start date</div>
+            <div class="ytrp-table-content-right">{{startDate}}</div>
+          </section>
+          <section class="ytrp-table-content">
+            <!-- <section class="align-inline h-auto"> -->
+            <div class="ytrp-table-content-left">Manager</div>
+            <div class="ytrp-table-content-right">{{Manager}}</div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="yos">
+        <div class="yos-heading">
+          <div class="yos-heading-text">Your Offer Summary</div> <span class="yos-date"> As of
+            {{offerSummaryDate}}</span>
+        </div>
+        <div class="EARS-div">
+          <div class="EARS-inside-div">
+            <div class="EARS">Estimated Annual Rewards Summary
+              <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div"
+                [ngbTooltip]="Estimated" placement="">
+              <ng-template #Estimated>
+                This annual rewards summary represents a full calendar year. Your actual annual rewards will change
+                based on your start date, company, individual and other performance factors.
+              </ng-template>
+            </div>
+
+            <div class="grid-container">
+              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'pie-chart-div span-3' : 'pie-chart-div'">
+                <img class="pie-chart" src="../../../assets/Images/Pie Chart.png">
+              </div>
+              @for(item of gridItemYos; track item){
+              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'grid-item-plus span-2' : 'grid-item-plus'">
+                +
+                <!-- <img src="../../../assets/Images/plus_icon.png" alt=""> -->
+              </div>
+              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'grid-item-yos span-3' : 'grid-item-yos'">
+                <div [ngClass]="{'up-text': item.subTitle, 'up-text-single': !item.subTitle}">
+                  <div [ngClass]="{'up-top': item.subTitle, 'up-single-text': !item.subTitle}">{{item.Title}}</div>
+                  <div class="up-bottom" *ngIf="item.subTitle">{{item.subTitle}}</div>
+                </div>
+                <div class="yos-sub-text">
+                  <div>{{item.Description}}</div>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rewards-table">
+      <div class="section-container">
+        <div class="reward-heading w-100">
+          <div class="reward">Rewards</div>
+          <div class="PAV normal">Potential Annual Value</div>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne1" aria-expanded="true" aria-controls="flush-collapseOne1">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-green"></div>
+                <div class="rewards-text">Target Annual Cash Compensation</div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align green">${{targetAnnualEquityGrant}}</div>
+                </div>
+              </button>
+            </h2>
+            <div id="flush-collapseOne1" class="accordion-collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Annualized Base Pay
+                      <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div"
+                        [ngbTooltip]="AnnualizedBasePay">
+                      <ng-template #AnnualizedBasePay>
+                        (Hourly rate of [currency][hourly rate] and
+                        weekly
+                        scheduled hours of
+                        [scheduled hours])
+                      </ng-template>
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{annualizedBasePay}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">Shift Differential Target
+                      <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div"
+                        [ngbTooltip]="ShiftDifferentialTarget">
+                      <ng-template #ShiftDifferentialTarget>
+                        ( [shift differential] % of base pay,
+                        contingent on
+                        working an eligible
+                        shift)
+                      </ng-template>
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{shiftDifferentialTarget}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">Annual Incentive Plan Target
+                      <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div"
+                        [ngbTooltip]="AnnualIncentivePlanTarget">
+                      <ng-template #AnnualIncentivePlanTarget>([STI Plan Percent] % of base salary) </ng-template>
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{annualIncentivePlanTarget}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed accor-button" type="button" aria-expanded="false">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-orange"></div>
+                <div class="rewards-text">Annual Equity Grant - RSUs
+                  <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div"
+                    [ngbTooltip]="AnnualEquityGrant">
+                  <ng-template #AnnualEquityGrant>This calculation is based on the 2024 target at grant
+                    for your
+                    position. Your equity grant value may vary based on your performance and
+                    eligibility is subject
+                    to change. The value of RSUs at the time of grant is not a prediction of the
+                    value that you
+                    ultimately may realize.</ng-template>
+                </div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align orange">${{targetAnnualEquityGrant}}</div>
+                </div>
+              </button>
+            </h2>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed accor-button" type="button" aria-expanded="false">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-blue"></div>
+                <div class="rewards-text">Benifits</div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align blue">${{Benifits}}</div>
+                </div>
+              </button>
+            </h2>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-purple"></div>
+                <div class="rewards-text">Allowances
+                  <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div"
+                    [ngbTooltip]="Allowance">
+                  <ng-template #Allowance>
+                    Potential value based on eligibility.
+                  </ng-template>
+                </div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align purple">${{Allowances}}</div>
+                </div>
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Car Allowance
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{carAllowance}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 2
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance2}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 3
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance3}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 4
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance4}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 5
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance5}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="total-heading w-100">
+          <div class="Total">Total</div>
+          <div class="res normal">$296,000</div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <div class="w-100 section-gap">
+
+    <section class="section-divider" *ngIf="oneTimeRewards.length">
+
+      <div class="Otr-heading">
+        <div class="otr-sub">
+          <div class="otr-sub-text">One-Time Rewards</div>
+          <img src="../../../assets/Images/Info.svg" alt="" tooltipClass="tooltip-inner-div" [ngbTooltip]="otr">
+          <ng-template #otr>
+            These one-time rewards are not included in your estimated annual rewards summary.
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="otr-rows">
+        <div class="otr-row">
+          @if(oneTimeRewards.length == 1){
+          <div class="otr-col border-top-orange span-12" *ngIf="oneTimeRewards[0].Paid">
+            <div class="otr-col-top">
+              <div class="otr-col-top-heading">{{oneTimeRewards[0].Title}}</div>
+              <div class="otr-col-top-subtext">{{oneTimeRewards[0].subTitle}}</div>
+            </div>
+            <div class="otr-col-bottom">
+              <div class="otr-col-bottom-table">
+                <div class="otr-col-bottom-table-row">
+                  <div class="left-text-heading">Paid</div>
+                  <div class="right-text-heading">Amount</div>
+                </div>
+                @for(item of oneTimeRewards[0].Paid; track item; let ind = $index){
+                <div class="otr-col-bottom-table-row">
+                  <div class="left-text">{{item}}</div>
+                  <div class="right-text">{{oneTimeRewards[0].Amount[ind]}}</div>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="otr-col border-top-purple span-12" *ngIf="!oneTimeRewards[0].Paid">
+            <div class="otr-col-top">
+              <div class="otr-col-top-heading">{{oneTimeRewards[0].Title}}</div>
+              <div class="otr-col-top-subtext">{{oneTimeRewards[0].subTitle}}</div>
+            </div>
+            <div class="otr-col-bottom">
+              <div class="otr-col-bottom-div">
+                <div class="otr-sub-p">{{oneTimeRewards[0].Description}}</div>
+              </div>
+            </div>
+          </div>
+          }@else{
+          @for(rewards of oneTimeRewards; track rewards; let index = $index; let last = $last){
+          <div
+            [ngClass]="(oneTimeRewards.length == 3 && index + 1 ==3) ? 'otr-col-last border-top-orange' : (oneTimeRewards.length == 3 && index !=3) ? 'otr-col border-top-purple' : 'otr-col border-top-purple'">
+            <div class="w-100" *ngIf="rewards.Paid">
+              <div class="otr-col-top">
+                <div class="otr-col-top-heading">{{rewards.Title}}</div>
+                <div class="otr-col-top-subtext">{{rewards.subTitle}}</div>
+              </div>
+              <div class="otr-col-bottom">
+                <div class="otr-col-bottom-table">
+                  <div class="otr-col-bottom-table-row">
+                    <div class="left-text-heading">Paid</div>
+                    <div class="right-text-heading">Amount</div>
+                  </div>
+                  @for(item of rewards.Paid; track item; let ind = $index){
+                  <div class="otr-col-bottom-table-row">
+                    <div class="left-text">{{item}}</div>
+                    <div class="right-text">{{rewards.Amount[ind]}}</div>
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+            <div class="w-100" *ngIf="!rewards.Paid">
+              <div class="otr-col-top">
+                <div class="otr-col-top-heading">{{rewards.Title}}</div>
+                <div class="otr-col-top-subtext">{{rewards.subTitle}}</div>
+              </div>
+              <div class="otr-col-bottom">
+                <div class="otr-col-bottom-div">
+                  <div class="otr-sub-p">{{rewards.Description}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="!last ? 'otr-plus-div' : 'd-none'">
+            <div class='otr-plus'>+</div>
+          </div>
+          }
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-divider">
+      <div class="ovb-main">
+        <div class="ovb-header">
+          <div class="ovb-header-heading">Other Valuable Benifits</div>
+          <div class="ovb-header-sub">The rewards of working at Abbvie go beyond a paycheck. Here's a sample of our
+            roboust
+            benifits that stand above the competition.</div>
+        </div>
+
+        <div class="grid-container-ovb">
+          @for(benifits of otherValuableBenifits; track benifits){
+          <div [ngClass]="this.size1024 && otherValuableBenifits.length <= 3 ? 'grid-item-ovb' : 
+            this.size1024 && otherValuableBenifits.length == 4 ? 'grid-item-ovb span-3' : 
+            this.size1024 && otherValuableBenifits.length == 8 ? 'grid-item-ovb-max' : 
+            this.size1024 && otherValuableBenifits.length == 7 ? 'grid-item-ovb-var7' : 'grid-item-ovb' ">
+            <img src="{{benifits.icon}}" alt="">
+            <div class="grid-item-ovb-bottom">
+              <div class="{{benifits.Color}} grid-item-ovb-bottom-up">{{benifits.Title}}</div>
+              <div class="grid-item-ovb-bottom-down">{{benifits.Description}}</div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="w-100">
+    <section class="section-divider footer">
+      <div class="footer-text">Disclaimer: Unless otherwise required by applicable law or binding contract,
+        and as further
+        described in the AbbVie Disclaimer, employment with AbbVie is on an at-will basis, meaning that an
+        employee or
+        AbbVie may end the employment relationship at any time, with or without cause or notice. This document
+        shall
+        not constitute a contract or otherwise binding promise regarding the terms and conditions of any future
+        employment, including any specified length of employment. Violations of any policies may result in
+        corrective
+        action, up to and including termination. In the event of any inconsistency between this document and
+        applicable law, the applicable law will apply. AbbVie reserves the right to interpret, amend, suspend,
+        terminate or modify its policies, practices and plans at any time, with the exception of at-will
+        employment,
+        in its sole and absolute discretion, with or without notice. This document replaces and supersedes prior
+        versions and to the extent inconsistent, any previous understanding, policy, practice or representation
+        concerning the subject matters addressed.</div>
+    </section>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section" #htmlToPdf *ngIf='print'>
+  <div class="w-100" #htmlToPdf1>
+
+    <section>
+      <div class="header-print">
+        <div class="Abbvie-logo-div">
+          <img class="img-w-abbvie-logo-print" src="../../../assets/Images/AbbVieLogo_AbbVie dark blue 1.png" alt="">
+        </div>
+        <div class="Abbvie-brand-div text-end">
+          <img class="img-w-abbvie-brand-line-print" src="../../../assets/Images/AbbVie Brand Line.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="gaps-print">
+
+      <div class="Desc-print">
+        <div class="ytrp">
+          <div class="ytrp-header">Your Total Rewards Package</div>
+          <div class="ytrp-s2">{{Name}}, there are many ways to be a difference maker. We invite you to
+            find your way at Abbvie. To be your best at home and at work, we offer a competitive
+            Total Rewards Package. It's illustrated value is shown below, with program details in
+            the {{Attachments}}.
+          </div>
+          <div class="ytrp-s3">This summary document is meant to provide general information only
+            and to
+            precede the
+            written
+            offer letter, which will supersede this document. Actual awards and amounts may vary. This
+            document is subject to the terms of the applicable Abbvie plan/program/policy documents and In
+            the
+            event of a conflict, the Abbvie plan/program/policy ducument will govern.
+          </div>
+        </div>
+
+        <div class="ytrp-table">
+
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Name</div>
+            <div class="ytrp-table-content-right">{{fullname}}</div>
+          </section>
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Role</div>
+            <div class="ytrp-table-content-right">{{Role}}</div>
+          </section>
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Location</div>
+            <div class="ytrp-table-content-right">{{Location}}</div>
+          </section>
+          <section class="ytrp-table-content ytrp-table-content-border">
+            <div class="ytrp-table-content-left">Start date</div>
+            <div class="ytrp-table-content-right">{{startDate}}</div>
+          </section>
+          <section class="ytrp-table-content">
+            <!-- <section class="align-inline h-auto"> -->
+            <div class="ytrp-table-content-left">Manager</div>
+            <div class="ytrp-table-content-right">{{Manager}}</div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="yos">
+        <div class="yos-heading">
+          <div class="yos-heading-text">Your Offer Summary</div> <span class="yos-date"> As of
+            {{offerSummaryDate}}</span>
+        </div>
+        <div class="EARS-div">
+          <div class="EARS-inside-div">
+            <div class="EARS-print">
+              <div>
+                Estimated Annual Rewards Summary
+              </div>
+              <span class="info-print">This annual rewards summary represents a full calendar year. Your actual annual
+                rewards will change
+                based on your start date, company, individual and other performance factors.</span>
+            </div>
+
+            <div class="grid-container">
+              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'pie-chart-div span-3' : 'pie-chart-div'">
+                <img class="pie-chart" src="../../../assets/Images/Pie Chart.png">
+              </div>
+              @for(item of gridItemYos; track item){
+              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'grid-item-plus span-2' : 'grid-item-plus'">
+                +
+                <!-- <img src="../../../assets/Images/plus_icon.png" alt=""> -->
+              </div>
+              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'grid-item-yos span-3' : 'grid-item-yos'">
+                <div [ngClass]="{'up-text': item.subTitle, 'up-text-single': !item.subTitle}">
+                  <div [ngClass]="{'up-top': item.subTitle, 'up-single-text': !item.subTitle}">{{item.Title}}</div>
+                  <div class="up-bottom" *ngIf="item.subTitle">{{item.subTitle}}</div>
+                </div>
+                <div class="yos-sub-text">
+                  <div>{{item.Description}}</div>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rewards-table">
+      <div class="section-container-print">
+        <div class="reward-heading w-100">
+          <div class="reward">Rewards</div>
+          <div class="PAV normal">Potential Annual Value</div>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" aria-expanded="true">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-green"></div>
+                <div class="rewards-text">Target Annual Cash Compensation</div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align green">${{targetAnnualEquityGrant}}</div>
+                </div>
+              </button>
+            </h2>
+            <div class="accordion-collapse">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Annualized Base Pay
+                      <span class="info-print">(Hourly rate of [currency][hourly rate] and
+                        weekly
+                        scheduled hours of
+                        [scheduled hours])</span>
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{annualizedBasePay}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">Shift Differential Target
+                      <span class="info-print">( [shift differential] % of base pay,
+                        contingent on
+                        working an eligible
+                        shift)</span>
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{shiftDifferentialTarget}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">Annual Incentive Plan Target
+                      <span class="info-print">([STI Plan Percent] % of base salary)</span>
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{annualIncentivePlanTarget}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button accor-button" type="button" aria-expanded="false">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-orange"></div>
+                <div class="rewards-text-print">
+                  <div>Annual Equity Grant - RSUs</div>
+                  <span class="info-print info-print-flex">This calculation is based on the 2024 target at grant
+                    for your
+                    position. Your equity grant value may vary based on your performance and
+                    eligibility is subject
+                    to change. The value of RSUs at the time of grant is not a prediction of the
+                    value that you
+                    ultimately may realize.</span>
+                </div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align orange">${{targetAnnualEquityGrant}}</div>
+                </div>
+              </button>
+            </h2>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button accor-button" type="button" aria-expanded="false">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-blue"></div>
+                <div class="rewards-text-print">
+                  <div>Benifits</div>
+                  <span class="info-print info-print-flex">
+                    Based on the average annual amount that AbbVie pays on behalf of our eligible employees for
+                    benefits. Includes the cost of health care and life/disability/coverage and well-being programs,
+                    retirement plan contributions and more.
+                  </span>
+                </div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align blue">${{Benifits}}</div>
+                </div>
+              </button>
+            </h2>
+          </div>
+
+          <div class="accordion-item" *ngIf="!Allowances">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" aria-expanded="true">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-purple"></div>
+                <div class="rewards-text">Allowances
+                  <span class="info-print">Potential value based on eligibility.</span>
+                </div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align purple">${{Allowances}}</div>
+                </div>
+              </button>
+            </h2>
+            <div class="accordion-collapse">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Car Allowance
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{carAllowance}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 2
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance2}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 3
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance3}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 4
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance4}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 5
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance5}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="total-heading w-100" *ngIf="!Allowances">
+          <div class="Total">Total</div>
+          <div class="res normal">$296,000</div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <div class="w-100 gaps-print" #htmlToPdf2>
+
+    <section>
+      <div class="header-print">
+        <div class="Abbvie-logo-div">
+          <img class="img-w-abbvie-logo-print" src="../../../assets/Images/AbbVieLogo_AbbVie dark blue 1.png" alt="">
+        </div>
+        <div class="Abbvie-brand-div text-end">
+          <img class="img-w-abbvie-brand-line-print" src="../../../assets/Images/AbbVie Brand Line.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="rewards-table-print" *ngIf="Allowances">
+      <div class="yos-heading">
+        <div class="yos-heading-text">Your Offer Summary (Continued)</div> <span> </span>
+      </div>
+      <div class="section-container-print">
+        <div class="reward-heading w-100">
+          <div class="reward">Rewards</div>
+          <div class="PAV normal">Potential Annual Value</div>
+        </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" aria-expanded="true">
+                <!-- <div class="align-inline"> -->
+                <div class="square bg-purple"></div>
+                <div class="rewards-text">Allowances
+                  <span class="info-print">Potential value based on eligibility.</span>
+                </div>
+                <!-- </div> -->
+                <div>
+                  <div class="yos-table-rhs-align purple">${{Allowances}}</div>
+                </div>
+              </button>
+            </h2>
+            <div class="accordion-collapse">
+              <div class="accordion-body">
+                <ul>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Car Allowance
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{carAllowance}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 2
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance2}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 3
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance3}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 4
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance4}}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="yos-table-sub-adj">
+                      Allowance 5
+                    </div>
+                    <div class="yos-table-rhs-li-align">
+                      <div class="">${{Allowance5}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="total-heading w-100">
+          <div class="Total">Total</div>
+          <div class="res normal">$296,000</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-divider-print" *ngIf="oneTimeRewards.length">
+
+      <div class="Otr-heading">
+        <div class="otr-sub w-100">
+          <div class="otr-sub-text">One-Time Rewards</div>
+          <span class="info-print">These one-time rewards are not included in your estimated annual rewards
+            summary.</span>
+        </div>
+      </div>
+
+      <div class="otr-rows-print">
+        <div class="otr-row-print">
+          @if(oneTimeRewards.length == 1){
+          <div class="otr-col-print border-top-orange span-12" *ngIf="oneTimeRewards[0].Paid">
+            <div class="otr-col-top">
+              <div class="otr-col-top-heading">{{oneTimeRewards[0].Title}}</div>
+              <div class="otr-col-top-subtext">{{oneTimeRewards[0].subTitle}}</div>
+            </div>
+            <div class="otr-col-bottom-print">
+              <div class="otr-col-bottom-table-print">
+                <div class="otr-col-bottom-table-row">
+                  <div class="left-text-heading">Paid</div>
+                  <div class="right-text-heading">Amount</div>
+                </div>
+                @for(item of oneTimeRewards[0].Paid; track item; let ind = $index){
+                <div class="otr-col-bottom-table-row">
+                  <div class="left-text">{{item}}</div>
+                  <div class="right-text">{{oneTimeRewards[0].Amount[ind]}}</div>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="otr-col-print border-top-purple span-12" *ngIf="!oneTimeRewards[0].Paid">
+            <div class="otr-col-top">
+              <div class="otr-col-top-heading">{{oneTimeRewards[0].Title}}</div>
+              <div class="otr-col-top-subtext">{{oneTimeRewards[0].subTitle}}</div>
+            </div>
+            <div class="otr-col-bottom-print">
+              <div class="otr-col-bottom-div">
+                <div class="otr-sub-p">{{oneTimeRewards[0].Description}}</div>
+              </div>
+            </div>
+          </div>
+          }@else{
+          @for(rewards of oneTimeRewards; track rewards; let index = $index; let last = $last){
+          <div class="otr-col-print border-top-purple">
+            <div class="w-100" *ngIf="rewards.Paid">
+              <div class="otr-col-top">
+                <div class="otr-col-top-heading">{{rewards.Title}}</div>
+                <div class="otr-col-top-subtext">{{rewards.subTitle}}</div>
+              </div>
+              <div class="otr-col-bottom-print">
+                <div class="otr-col-bottom-table-print">
+                  <div class="otr-col-bottom-table-row">
+                    <div class="left-text-heading">Paid</div>
+                    <div class="right-text-heading">Amount</div>
+                  </div>
+                  @for(item of rewards.Paid; track item; let ind = $index){
+                  <div class="otr-col-bottom-table-row">
+                    <div class="left-text">{{item}}</div>
+                    <div class="right-text">{{rewards.Amount[ind]}}</div>
+                  </div>
+                  }
+                </div>
+              </div>
+            </div>
+            <div class="w-100" *ngIf="!rewards.Paid">
+              <div class="otr-col-top">
+                <div class="otr-col-top-heading">{{rewards.Title}}</div>
+                <div class="otr-col-top-subtext">{{rewards.subTitle}}</div>
+              </div>
+              <div class="otr-col-bottom-print">
+                <div class="otr-col-bottom-div">
+                  <div class="otr-sub-p">{{rewards.Description}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div [ngClass]="!last ? 'otr-plus-div' : 'd-none'">
+            <div class='otr-plus'>+</div>
+          </div>
+          }
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-divider-print">
+      <div class="ovb-main">
+        <div class="ovb-header">
+          <div class="ovb-header-heading">Other Valuable Benifits</div>
+          <div class="ovb-header-sub">The rewards of working at Abbvie go beyond a paycheck. Here's a sample of our
+            roboust
+            benifits that stand above the competition.</div>
+        </div>
+
+        <div class="grid-container-ovb-print">
+          @for(benifits of otherValuableBenifits; track benifits){
+          <div class="grid-item-ovb-print">
+            <img src="{{benifits.icon}}" alt="">
+            <div class="grid-item-ovb-bottom">
+              <div class="{{benifits.Color}} grid-item-ovb-bottom-up">{{benifits.Title}}</div>
+              <div class="grid-item-ovb-bottom-down">{{benifits.Description}}</div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="w-100" #htmlToPdf3>
+
+    <section>
+      <div class="header-print">
+        <div class="Abbvie-logo-div">
+          <img class="img-w-abbvie-logo-print" src="../../../assets/Images/AbbVieLogo_AbbVie dark blue 1.png" alt="">
+        </div>
+        <div class="Abbvie-brand-div text-end">
+          <img class="img-w-abbvie-brand-line-print" src="../../../assets/Images/AbbVie Brand Line.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section-divider footer-print">
+      <div class="footer-text">Disclaimer: Unless otherwise required by applicable law or binding contract,
+        and as further
+        described in the AbbVie Disclaimer, employment with AbbVie is on an at-will basis, meaning that an
+        employee or
+        AbbVie may end the employment relationship at any time, with or without cause or notice. This document
+        shall
+        not constitute a contract or otherwise binding promise regarding the terms and conditions of any future
+        employment, including any specified length of employment. Violations of any policies may result in
+        corrective
+        action, up to and including termination. In the event of any inconsistency between this document and
+        applicable law, the applicable law will apply. AbbVie reserves the right to interpret, amend, suspend,
+        terminate or modify its policies, practices and plans at any time, with the exception of at-will
+        employment,
+        in its sole and absolute discretion, with or without notice. This document replaces and supersedes prior
+        versions and to the extent inconsistent, any previous understanding, policy, practice or representation
+        concerning the subject matters addressed.</div>
+    </section>
+  </div>
+</section>

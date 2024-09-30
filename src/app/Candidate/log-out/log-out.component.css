@@ -1,0 +1,14 @@
+section {
+    width: 100%;
+    height: calc(100vh - 55px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../../../assets/Images/CandidateLoginBackground.png');
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+}
+
+.logout {
+    position: relative;
+    top: 157px;
+    font-weight: 700;
+}

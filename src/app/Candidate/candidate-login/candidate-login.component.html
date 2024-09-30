@@ -1,0 +1,39 @@
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center align-items-center pb-0">
+            <div class="col-lg-5 col-md-8 col-sm-10 col-12 p-5 pt-3 pb-0">
+                <img  width="100%" src="../../../assets/Images/AbbVie Brand Line_1line_DarkBlue_CMYK 1.svg" alt="">
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center p-1 pt-0">
+            <div class="col-lg-5 col-md-8 col-sm-10 col-12 p-4 pb-5">
+                <div class="welcome p-2 pb-0 ps-lg-2 pe-lg-2 ps-md-2 pe-md-2 ps-sm-2 pe-sm-2 ps-0 pe-0">
+                    <p>Welcome</p>
+                </div>
+                <div class="p-2 pt-0 ps-lg-2 pe-lg-2 ps-md-2 pe-md-2 ps-sm-2 pe-sm-2 ps-0 pe-0">
+                    <label for="email" class="form-label">Email ID</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                </div>
+                <div class="p-2 ps-lg-2 pe-lg-2 ps-md-2 pe-md-2 ps-sm-2 pe-sm-2 ps-0 pe-0">
+                    <label for="password" class="form-label">Password</label>
+                    <input [type]="this.show ? 'text' : 'password'" class="form-control" id="password"
+                        placeholder="*****">
+                    <img (click)="this.show = !this.show" src="../../../assets/Images/eye-icon.svg" alt=""
+                        class="eye-icon">
+                </div>
+                <div class="p-2 pt-0 ps-lg-2 pe-lg-2 ps-md-2 pe-md-2 ps-sm-2 pe-sm-2 ps-0 pe-0">
+                    <button type="button" class="btn btn-secondary w-100" (click)="SignIn()">LOGIN</button>
+                </div>
+                <div class="d-flex p-2 ps-lg-2 pe-lg-2 ps-md-2 pe-md-2 ps-sm-2 pe-sm-2 ps-0 pe-0">
+                    <div class="w-50 text-start">
+                        <a [routerLink]="['/candidate/forgot-password']" class="text-black">Forgot Password?</a>
+                    </div>
+                    <div class="w-50 text-end">
+                        <a (click)="NeedAssistance()" class="text-black help">Need Assistance?</a>
+                        <app-pop-ups [Content]="Content" [Heading]="Heading"></app-pop-ups>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

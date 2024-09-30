@@ -1,0 +1,84 @@
+.section {
+    width: 584px;
+    height: 308px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25.78px;
+}
+
+.custom-button {
+    height: 48px;
+    width: 113.06px;
+    font-size: 16px;
+    font-weight: 700;
+    --bs-btn-color: white;
+    --bs-btn-bg: #071D49;
+    
+    --bs-btn-border-color: #071D49;
+    --bs-btn-hover-color: #000000;
+    --bs-btn-hover-bg: #071D49;
+    --bs-btn-hover-border-color: #071D49;
+}
+
+.close-button {
+    --bs-btn-close-color: #000;
+    --bs-btn-close-opacity: 1;
+    --bs-btn-close-hover-opacity: 0.75;
+    --bs-btn-close-focus-shadow: 49 0 0 0.25rem rgb(0 0 0);
+    --bs-btn-close-focus-opacity: 1;
+    --bs-btn-close-disabled-opacity: 0.25;
+    --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: .25em .25em;
+    color: var(--bs-btn-close-color);
+    background: transparent var(--bs-btn-close-bg) center / 1em auto no-repeat;
+    border: 0;
+    border-radius: .375rem;
+    opacity: var(--bs-btn-close-opacity);
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.heading {
+    padding: 8% 6% 4% 6%;
+}
+
+.content-spacing {
+    padding: 3% 10%;
+}
+
+
+@media (min-width: 320px) {
+
+    .section {
+        width: 584px;
+        height: 280px;
+    }
+
+    .heading {
+        padding: 9% 6% 6% 6%;
+    }
+
+}
+
+@media (min-width: 431px) {
+
+    .heading {
+        padding: 8% 6% 4% 6%;
+    }
+
+    .content-spacing {
+        padding: 3% 10%;
+    }
+}
