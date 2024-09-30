@@ -466,7 +466,7 @@
 
 
 
-<section class="section" #htmlToPdf *ngIf='print'>
+<section class="section-print" #htmlToPdf *ngIf='print'>
   <div class="w-100" #htmlToPdf1>
 
     <section>
@@ -483,7 +483,7 @@
     <section class="gaps-print">
 
       <div class="Desc-print">
-        <div class="ytrp">
+        <div class="ytrp-print">
           <div class="ytrp-header">Your Total Rewards Package</div>
           <div class="ytrp-s2">{{Name}}, there are many ways to be a difference maker. We invite you to
             find your way at Abbvie. To be your best at home and at work, we offer a competitive
@@ -501,7 +501,7 @@
           </div>
         </div>
 
-        <div class="ytrp-table">
+        <div class="ytrp-table-print">
 
           <section class="ytrp-table-content ytrp-table-content-border">
             <div class="ytrp-table-content-left">Name</div>
@@ -528,9 +528,9 @@
         </div>
       </div>
 
-      <div class="yos">
-        <div class="yos-heading">
-          <div class="yos-heading-text">Your Offer Summary</div> <span class="yos-date"> As of
+      <div class="yos-print">
+        <div class="yos-heading-print">
+          <div class="yos-heading-text-print">Your Offer Summary</div> <span class="yos-date"> As of
             {{offerSummaryDate}}</span>
         </div>
         <div class="EARS-div">
@@ -544,16 +544,16 @@
                 based on your start date, company, individual and other performance factors.</span>
             </div>
 
-            <div class="grid-container">
-              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'pie-chart-div span-3' : 'pie-chart-div'">
+            <div class="grid-container-print">
+              <div class="pie-chart-div-print">
                 <img class="pie-chart" src="../../../assets/Images/Pie Chart.png">
               </div>
               @for(item of gridItemYos; track item){
-              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'grid-item-plus span-2' : 'grid-item-plus'">
+              <div class="grid-item-plus">
                 +
                 <!-- <img src="../../../assets/Images/plus_icon.png" alt=""> -->
               </div>
-              <div [ngClass]="(this.size1024 && gridItemYos.length <= 1) ? 'grid-item-yos span-3' : 'grid-item-yos'">
+              <div class="grid-item-yos-print">
                 <div [ngClass]="{'up-text': item.subTitle, 'up-text-single': !item.subTitle}">
                   <div [ngClass]="{'up-top': item.subTitle, 'up-single-text': !item.subTitle}">{{item.Title}}</div>
                   <div class="up-bottom" *ngIf="item.subTitle">{{item.subTitle}}</div>
@@ -569,11 +569,11 @@
       </div>
     </section>
 
-    <section class="rewards-table">
+    <section class="rewards-table-print">
       <div class="section-container-print">
         <div class="reward-heading w-100">
           <div class="reward">Rewards</div>
-          <div class="PAV normal">Potential Annual Value</div>
+          <div class="PAV normal-print">Potential Annual Value</div>
         </div>
 
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -760,13 +760,13 @@
     </section>
 
     <section class="rewards-table-print" *ngIf="Allowances">
-      <div class="yos-heading">
+      <div class="yos-heading-print">
         <div class="yos-heading-text">Your Offer Summary (Continued)</div> <span> </span>
       </div>
       <div class="section-container-print">
         <div class="reward-heading w-100">
           <div class="reward">Rewards</div>
-          <div class="PAV normal">Potential Annual Value</div>
+          <div class="PAV normal-print">Potential Annual Value</div>
         </div>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
@@ -967,7 +967,7 @@
       </div>
     </section>
 
-    <section class="section-divider footer-print">
+    <section class="footer-print">
       <div class="footer-text">Disclaimer: Unless otherwise required by applicable law or binding contract,
         and as further
         described in the AbbVie Disclaimer, employment with AbbVie is on an at-will basis, meaning that an

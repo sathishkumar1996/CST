@@ -26,11 +26,11 @@ export class OfferLetterComponent implements OnInit {
   @ViewChild('htmlToPdf3') page3!: ElementRef
   previousURL?: string
   constructor(
-    private sendToHeader: SendToHeaderService,
+    private sendToHeader: SendToHeaderService, 
     private route: Router) {
     this.previousURL = this.route.getCurrentNavigation()?.previousNavigation?.finalUrl?.toString();
-  }
-
+    }
+  
   ngOnInit(): void {
     if (window.innerWidth >= 1024) {
       this.size1024 = true
@@ -39,13 +39,13 @@ export class OfferLetterComponent implements OnInit {
     }
     this.subscription = this.sendToHeader.date$.subscribe(date => {
       console.log(date);
-
+      
       this.date = date;
     });
   }
 
-  GoBack = () => {
-    if (this.previousURL) {
+  GoBack = () => {    
+    if(this.previousURL){
       this.route.navigateByUrl(this.previousURL)
     }
   }

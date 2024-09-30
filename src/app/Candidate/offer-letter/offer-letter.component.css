@@ -5,6 +5,58 @@ ul {
   padding: 0;
 }
 
+.yos-print {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0px 65px;
+}
+
+
+.yos-heading-print {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  align-self: stretch;
+  flex-direction: row;
+}
+
+.yos-heading-text-print {
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 400;
+}
+
+.grid-container-print {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;
+  gap: 10px;
+  width: 84%;
+  align-self: center;
+}
+
+.ytrp-print {
+  display: flex;
+  width: 69.5%;
+  padding-right: 4%;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-right: 1px solid #CBCCCB;
+  gap: 20px;
+}
+
+.ytrp-table-print {
+  display: flex;
+  padding-left: 4%;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
 .date {
   font-size: 14px;
 }
@@ -19,7 +71,7 @@ ul {
   background: #EDEEF6;
 }
 
-.back-button{
+.back-button {
   cursor: pointer;
   display: flex;
   gap: 15px;
@@ -61,6 +113,15 @@ ul {
 }
 
 .section {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.section-print {
+  width: 1263.330px;
+  height: 3650.33px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -220,6 +281,16 @@ ul {
 }
 
 .grid-item-yos {
+  display: flex;
+  width: 242px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+  grid-column: span 2;
+}
+
+.grid-item-yos-print {
   display: flex;
   width: 242px;
   flex-direction: column;
@@ -549,6 +620,12 @@ ul li:nth-last-of-type(odd) {
   grid-column: span 2;
 }
 
+.pie-chart-div-print {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
+}
+
 .otr-rows {
   display: flex;
   flex-direction: column;
@@ -734,6 +811,7 @@ ul li:nth-last-of-type(odd) {
   gap: 16px;
   align-self: stretch;
   border-top: 1px solid #CBCCCB;
+  margin: 0px 65px;
 }
 
 .footer-text {
@@ -915,6 +993,14 @@ ul li:nth-last-of-type(odd) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 40px;
+  padding: 0 65px;
+}
+
+.rewards-table-print {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
   padding: 0 65px;
 }
@@ -1015,6 +1101,11 @@ ul li:nth-last-of-type(odd) {
 }
 
 .normal {
+  position: relative;
+  right: 35px;
+}
+
+.normal-print {
   position: relative;
   right: 35px;
 }
